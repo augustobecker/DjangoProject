@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Produto
-from .forms import ProdutoForm
+from .models import Product, Category
+from .forms import ProductForm
 
-class ProdutoAdmin(admin.ModelAdmin):
-    form = ProdutoForm
+class ProductAdmin(admin.ModelAdmin):
+    form = ProductForm
 
-admin.site.register(Produto, ProdutoAdmin)
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Category)
