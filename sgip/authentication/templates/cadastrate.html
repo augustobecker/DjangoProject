@@ -23,7 +23,7 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 300px;
-            margin: 20px; /* Adiciona margem ao redor do formulário */
+            margin: 20px;
         }
         h1 {
             text-align: center;
@@ -63,15 +63,16 @@
     </style>
 </head>
 <body>
-    <form action="/new-product/" method="post">
+    <form method="post" action="{% if subcategory %}/{{ category }}/{{ subcategory }}/new-product/{% else %}/{{ category }}/new-product/{% endif %}">
         {% csrf_token %}
-        <label for="nome">Nome do Produto:</label><br>
-        <input type="text" id="nome" name="nome" required><br>
-        <label for="descricao">Descrição:</label><br>
-        <textarea id="descricao" name="descricao" rows="4" required></textarea><br>
-        <label for="preco">Preço:</label><br>
-        <input type="number" id="preco" name="preco" step="0.01" min="0" required><br>
+        <label for="name">Nome do Produto:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        <label for="description">Descrição:</label><br>
+        <textarea id="description" name="description" rows="4" required></textarea><br>
+        <label for="price">Preço:</label><br>
+        <input type="number" id="price" name="price" step="0.01" min="0" required><br>
         <button type="submit">Cadastrar</button>
     </form>
 </body>
 </html>
+
